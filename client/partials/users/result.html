@@ -1,0 +1,20 @@
+<h1>{{user.name}} ended the Bid</h1>
+<strong>Highest Bidder per Product</strong>
+	<table>
+		<thead>
+			<th>Product</th>
+			<th>Bidder</th>
+			<th>Amount</th>
+			<th>Date</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat='bid in bids | filter: filter_name track by $index'>
+				<td>{{bid.product}}</td>
+				<td>{{bid.name}}</td>
+				<td>${{bid.amount}}</td>
+				<td>{{bid.date | date: 'MMMM dd, yyyy'}}</td>
+			</tr>
+		</tbody>
+	</table>
+<a href='/'>Logout</a> 
+<a href='/'>Start Bid</a> 

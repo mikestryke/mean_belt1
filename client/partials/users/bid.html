@@ -1,0 +1,65 @@
+<script type="text/javascript">
+	function confirmUser(){
+	    var ask=confirm("Are you sure");
+	    if(ask){
+	      window.location="/result";
+	     }
+	}
+</script>
+
+
+<h1>Bid Now!</h1><a href='/'>Logout</a> 
+
+<h2>Place your bid below!</h2>
+	<form>
+		<select ng-model='new_bid.product'>
+			<option value='Lamp'>Lamp</option>
+			<option value='Bear'>Bear</option>
+			<option value='Washing Machine'>Washing Machine</option>
+		</select>
+		<strong >{{product.name}}</strong>
+		Enter your name: <input type='text' ng-model='new_bid.name' >
+		Place your bid: <input type='number' ng-model='new_bid.amount' min='0'>
+		<input type='submit' value='Bid' ng-click='addBid()'>
+	</form>
+<h2>Current Bids</h2>
+<input type-'text' ng-model='filter_name' placeholder='search name...'>
+	<table>
+		<thead>
+			<th>Product</th>
+			<th>Bidder</th>
+			<th>Amount</th>
+			<th>Date</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat='bid in bids | filter: filter_name track by $index'>
+				<td>{{bid.product}}</td>
+				<td>{{bid.name}}</td>
+				<td>${{bid.amount}}</td>
+				<td>{{bid.date | date: 'MMMM dd, yyyy'}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+<a href='#/result' onclick='confirmUser()'>End Bid</a> 
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form>
+	Topic: <input type='text' ng-model='new_topic.title'>
+	Description: <input type='text' ng-model='new_topic.description'>
+	Category: <select ng-model='new_topic.category'>
+				<option ng-repeat='category in categories' value='{{category}}'>{{category}}</option>
+				</select>
+	<input type='submit' value='Add' ng-click='addTopic(new_topic, user)'>
+</form> -->
+
+
